@@ -1,9 +1,9 @@
-name: build adocs
+name: build documentation from adocs
 
 on:
   push:
     branches:
-    - master
+    - main
 jobs:
   adoc_build:
     runs-on: ubuntu-latest
