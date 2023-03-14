@@ -20,7 +20,7 @@ jobs:
       id: adocbuild-pdf
       uses: tonynv/asciidoctor-action@master
       with:
-          program: "gem install asciidoctor-multipage asciidoctor-diagram rouge text-hyphen && cd $GITHUB_WORKSPACE/docs && asciidoctor -r asciidoctor-pdf -b pdf -o document.pdf index.adoc && ls -al document.pdf"
+          program: "gem install asciidoctor-multipage asciidoctor-diagram rouge text-hyphen && cd $GITHUB_WORKSPACE/docs && asciidoctor -r asciidoctor-pdf -b pdf -o document.pdf index.adoc && readlink -f document.pdf"
     - name: Upload PDF 
       uses: actions/upload-artifact@v3
       with:
