@@ -4,7 +4,7 @@ html:
 	asciidoctor -r asciidoctor-multipage -b multipage_html5 -a stylesheet=style.css index.adoc -D html
 
 pdf: 
-	asciidoctor -r asciidoctor-pdf -b pdf index.adoc
+	asciidoctor -r asciidoctor-pdf -b pdf -o doc.pdf index.adoc
 
 graphviz-diagrams:
 	mkdir -p images/diagrams/
