@@ -20,12 +20,12 @@ jobs:
       id: adocbuild-pdf
       uses: tonynv/asciidoctor-action@master
       with:
-          program: "gem install asciidoctor-multipage asciidoctor-diagram rouge text-hyphen && cd $GITHUB_WORKSPACE/docs && asciidoctor -r asciidoctor-pdf -b pdf -a allow-uri-read -D . -o document.pdf index.adoc && readlink -f document.pdf && echo $GITHUB_WORKSPACE"
+          program: "gem install asciidoctor-multipage asciidoctor-diagram rouge text-hyphen prawn-gmagick && cd $GITHUB_WORKSPACE/docs && asciidoctor -r asciidoctor-pdf -b pdf -a allow-uri-read -D . -o document.pdf index.adoc && readlink -f document.pdf && echo $GITHUB_WORKSPACE"
     - name: Upload PDF 
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: PDF document
-        path: /github/workspace/docs/document.pdf
+        path: $GITHUB_WORKSPACE/docs/document.pdf
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with: 
