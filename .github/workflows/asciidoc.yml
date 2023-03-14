@@ -22,10 +22,10 @@ jobs:
       with:
           program: "gem install asciidoctor-multipage asciidoctor-diagram rouge text-hyphen && cd $GITHUB_WORKSPACE/docs && asciidoctor -r asciidoctor-pdf -b pdf -o document.pdf index.adoc"
     - name: Upload PDF 
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF document
-          path: document.pdf
+      uses: actions/upload-artifact@v3
+      with:
+        name: PDF document
+        path: $GITHUB_WORKSPACE/docs/document.pdf
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with: 
